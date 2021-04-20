@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "employees-63e9a": {
+      "hosting": {
+        "employees": [
+          "employees-63e9a"
+        ]
+      }
+    }
+  }
+}
