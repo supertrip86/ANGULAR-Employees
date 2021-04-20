@@ -1,0 +1,23 @@
+<div class="card mt-2">
+    <div class="card-header">
+        Employee Details
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                Name: <h5>Manuel Perez</h5>
+            </li>
+            <li class="list-group-item">
+                Email: <h5>mp@gmail.com</h5>
+            </li>
+            <li class="list-group-item">
+                Start Date: <h5>07/11/2018</h5>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-group" role="group">
+        <button (click)="onEdit()" type="button" class="btn btn-outline-warning m-1 btn-sm">Edit</button>
+        <button (click)="onDelete()" type="button" class="btn btn-outline-danger m-1 btn-sm">Delete</button>
+    </div>
+</div>
+<button (click)="onBackToList()" type="button" class="btn btn-secondary mt-2">Go Back To List</button>
