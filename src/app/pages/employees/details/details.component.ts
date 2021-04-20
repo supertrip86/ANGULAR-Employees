@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Employee } from 'src/app/shared/models/employee.interface';
 
 @Component({
   selector: 'app-details',
@@ -12,11 +13,11 @@ export class DetailsComponent implements OnInit {
       value: null
     }
   };
-  employee: any = null;
+  employee: Employee = null;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.employee = navigation?.extras?.state;
+    this.employee = navigation?.extras?.state?.value;
   }
 
   onEdit(): void {
@@ -33,6 +34,9 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (typeof this.employee === 'undefined') {
+      this.router.navigate(['list']);
+    }
   }
 
 }
