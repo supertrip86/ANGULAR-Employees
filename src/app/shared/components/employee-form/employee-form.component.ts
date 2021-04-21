@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeesService } from 'src/app/pages/employees/employees.service';
+
 import { Employee } from '../../models/employee.interface';
 
 @Component({
@@ -20,6 +21,19 @@ export class EmployeeFormComponent implements OnInit {
     this.initForm();
   }
 
+  ngOnInit(): void {
+    if (typeof this.employee === 'undefined') {
+      this.router.navigate(['new']);
+    } else {
+      this.employeeForm.patchValue(this.employee);
+    }
+  }
+
+  isValidField(field: string): string {
+    const validateField = this.employeeForm.get(field);
+    return (!validateField.valid && validateField.touched) ? 'is-invalid' : validateField.touched ? 'is-valid' : '';
+  }
+
   onSave(): void {
     console.log('Saved', this.employeeForm.value);
 
@@ -34,14 +48,6 @@ export class EmployeeFormComponent implements OnInit {
 
   onBackToList(): void {
     this.router.navigate(['list']);
-  }
-
-  ngOnInit(): void {
-    if (typeof this.employee === 'undefined') {
-      this.router.navigate(['new']);
-    } else {
-      this.employeeForm.patchValue(this.employee);
-    }
   }
 
   private initForm(): void {
