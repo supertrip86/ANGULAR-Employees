@@ -1,6 +1,6 @@
-import { EmployeesService } from 'src/app/pages/employees/employees.service';
 import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { EmployeesService } from 'src/app/pages/employees/employees.service';
 
 @Component({
   selector: 'app-list',
